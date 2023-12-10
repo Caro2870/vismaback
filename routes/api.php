@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/divisiones/listar', [DivisionController::class, 'listarTodas']);
+Route::get('/divisiones/listar', [DivisionController::class, 'listarTodas']);
