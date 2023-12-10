@@ -20,4 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/divisiones/listar', [DivisionController::class, 'listarTodas']);
+Route::get('/divisiones/listar', [DivisionController::class, 'listarDivisiones']);
+Route::get('/divisiones/listar-subdivisiones-por-id', [DivisionController::class, 'listarSubdivisionesPorId']);
+Route::post('/divisiones/crear-division', [DivisionController::class, 'crearDivisones']);
+Route::put('/divisiones/actualizar-division-por-id', [DivisionController::class, 'actualizarDivisiones']);
+Route::delete('/divisiones/delete-division', [DivisionController::class, 'eliminarDivision']);
