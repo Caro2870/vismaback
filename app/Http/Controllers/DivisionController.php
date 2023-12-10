@@ -144,13 +144,22 @@ class DivisionController extends Controller
         }
     }
 
-    public function eliminarDivision($id)
+    public function eliminarDivision(Request $request)
     {
-        // Eliminar la división
-        $division = Division::findOrFail($id);
-        $division->delete();
-
-        return response()->json(['message' => 'División eliminada correctamente']);
+        try {
+            // Eliminar la división
+            $division = Division::findOrFail( $request->id);
+            $division->delete();
+    
+            return response()->json(['message' => 'División eliminada correctamente']);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $notFoundException) {
+            // Capturar excepción si el ID no existe
+            return response()->json(['error' => 'División no encontrada.'], 404);
+        } catch (\Exception $e) {
+            // Capturar otras excepciones
+            return response()->json(['error' => 'Error al procesar la solicitud. Detalles: ' . $e->getMessage()], 500);
+        }
     }
+    
     
     }
