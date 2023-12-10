@@ -11,20 +11,31 @@ class DivisionController extends Controller
 
     public function crearDivisones(Request $request)
     {
-        // Validar y guardar la nueva división
-        $request->validate(Division::rules());
-
-        $division = Division::create($request->all());
-
-        return response()->json(['message' => 'División creada correctamente', 'division' => $division]);
+        try {
+            // Validar y guardar la nueva división
+            $request->validate(Division::rules());
+    
+            $division = Division::create($request->all());
+    
+            return response()->json(['message' => 'División creada correctamente', 'division' => $division]);
+        } catch (\Illuminate\Validation\ValidationException $validationException) {
+            // Capturar excepción de validación y obtener mensajes de error
+            $errors = $validationException->errors();
+    
+            return response()->json(['error' => 'Error de validación', 'messages' => $errors], 422);
+        } catch (\Exception $e) {
+            // Capturar otras excepciones
+            return response()->json(['error' => 'Error al procesar la solicitud. Detalles: ' . $e->getMessage()], 500);
+        }
     }
+    
 
-    public function actualizarDivisiones(Request $request, $id)
+    public function actualizarDivisiones(Request $request)
     {
         // Validar y actualizar la división
-        $request->validate(Division::rules($id));
+        $request->validate(Division::rules($request->id));
 
-        $division = Division::findOrFail($id);
+        $division = Division::findOrFail($request->id);
         $division->update($request->all());
 
         return response()->json(['message' => 'División actualizada correctamente', 'division' => $division]);
