@@ -20,10 +20,11 @@ package:
 functions:
     # This function runs the Laravel website/API
     web:
-        handler: public/index.php
-        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
-        layers:
-            - ${bref:layer.php-80-fpm}
+        handler: Bref\LaravelBridge\Http\OctaneHandler
+        runtime: php-81
+        environment:
+            BREF_LOOP_MAX: 250
+            OCTANE_PERSIST_DATABASE_SESSIONS: 1
         events:
             - httpApi: '*'
     # This function lets us run artisan commands in Lambda
