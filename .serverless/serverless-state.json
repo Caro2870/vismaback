@@ -181,7 +181,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/laravel/dev/1702260305063-2023-12-11T02:05:05.063Z/laravel.zip"
+                "S3Key": "serverless/laravel/dev/1702274413461-2023-12-11T06:00:13.461Z/laravel.zip"
               },
               "Handler": "public/index.php",
               "Runtime": "provided.al2",
@@ -209,7 +209,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/laravel/dev/1702260305063-2023-12-11T02:05:05.063Z/laravel.zip"
+                "S3Key": "serverless/laravel/dev/1702274413461-2023-12-11T06:00:13.461Z/laravel.zip"
               },
               "Handler": "artisan",
               "Runtime": "provided.al2",
@@ -231,24 +231,24 @@
               "ArtisanLogGroup"
             ]
           },
-          "WebLambdaVersionMgiDRhLcYCGlGcB5PIUHVUxOavFkGNIeJLFVgUJ0KSg": {
+          "WebLambdaVersionvjm6wYS7QhjrSttyXdwfpV4Y2lIrDatOk9Ah8AwpM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebLambdaFunction"
               },
-              "CodeSha256": "cicsHaBxi9KVxYL9uPimTfGuONU99zFIQMllxoVrW60="
+              "CodeSha256": "LWvF4omN5stRNsHLCKSMQurO8VBAbXd6mFc19nZ64UA="
             }
           },
-          "ArtisanLambdaVersionuIREIB5mmbIBuchA91U3chiGtZhXaWNmNO8PrrCro": {
+          "ArtisanLambdaVersionXnnJ2KfwS2Y1yrla89AbNEkBONCEdGDaTMoSBus4xY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ArtisanLambdaFunction"
               },
-              "CodeSha256": "cicsHaBxi9KVxYL9uPimTfGuONU99zFIQMllxoVrW60="
+              "CodeSha256": "LWvF4omN5stRNsHLCKSMQurO8VBAbXd6mFc19nZ64UA="
             }
           },
           "HttpApi": {
@@ -356,7 +356,7 @@
           "WebLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebLambdaVersionMgiDRhLcYCGlGcB5PIUHVUxOavFkGNIeJLFVgUJ0KSg"
+              "Ref": "WebLambdaVersionvjm6wYS7QhjrSttyXdwfpV4Y2lIrDatOk9Ah8AwpM"
             },
             "Export": {
               "Name": "sls-laravel-dev-WebLambdaFunctionQualifiedArn"
@@ -365,7 +365,7 @@
           "ArtisanLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ArtisanLambdaVersionuIREIB5mmbIBuchA91U3chiGtZhXaWNmNO8PrrCro"
+              "Ref": "ArtisanLambdaVersionXnnJ2KfwS2Y1yrla89AbNEkBONCEdGDaTMoSBus4xY"
             },
             "Export": {
               "Name": "sls-laravel-dev-ArtisanLambdaFunctionQualifiedArn"
@@ -513,7 +513,7 @@
         "memory": 1024,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "WebLambdaVersionMgiDRhLcYCGlGcB5PIUHVUxOavFkGNIeJLFVgUJ0KSg"
+        "versionLogicalId": "WebLambdaVersionvjm6wYS7QhjrSttyXdwfpV4Y2lIrDatOk9Ah8AwpM"
       },
       "artisan": {
         "handler": "artisan",
@@ -527,7 +527,7 @@
         "memory": 1024,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "ArtisanLambdaVersionuIREIB5mmbIBuchA91U3chiGtZhXaWNmNO8PrrCro"
+        "versionLogicalId": "ArtisanLambdaVersionXnnJ2KfwS2Y1yrla89AbNEkBONCEdGDaTMoSBus4xY"
       }
     },
     "configValidationMode": "warn",
@@ -547,7 +547,7 @@
         ],
         "artifactsS3KeyDirname": "serverless/laravel/dev/code-artifacts",
         "artifact": "C:\\Users\\Julio\\Visma\\.serverless\\laravel.zip",
-        "artifactDirectoryName": "serverless/laravel/dev/1702260305063-2023-12-11T02:05:05.063Z"
+        "artifactDirectoryName": "serverless/laravel/dev/1702274413461-2023-12-11T06:00:13.461Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -561,7 +561,7 @@
     "artifact": "C:\\Users\\Julio\\Visma\\.serverless\\laravel.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/laravel/dev/1702260305063-2023-12-11T02:05:05.063Z",
+    "artifactDirectoryName": "serverless/laravel/dev/1702274413461-2023-12-11T06:00:13.461Z",
     "artifact": "laravel.zip"
   }
 }
