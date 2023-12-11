@@ -77,7 +77,7 @@ class DivisionController extends Controller
             if ($search) {
                 switch ($column) {
                     case 'subdivisiones':
-                        $query->where('car.nombre', 'like', "%$search%");
+                        $query->where('contador.subdivisiones', '=', $search) ;
                         break;
                     case 'nombre':
                         $query->where('divisions.nombre', 'like', "%$search%");
@@ -89,7 +89,7 @@ class DivisionController extends Controller
                             $query->where('divisions.colaboradores', 'like', "%$search%");
                             break;
                             case 'nivel':
-                                $query->where('car.nivel', 'like', "%$search%");
+                                $query->where('divisions.nivel', '=', $search); 
                                 break;
                             case 'embajador_nombre':
                                 $query->where('divisions.embajador_nombre', 'like', "%$search%");
@@ -98,7 +98,11 @@ class DivisionController extends Controller
                     default:
                         $query->where(function ($q) use ($search) {
                             $q->where('car.nombre', 'like', "%$search%")
-                                ->orWhere('divisions.nombre', 'like', "%$search%");
+                                ->orWhere('divisions.nombre', 'like', "%$search%")
+                                ->orWhere('divisions.colaboradores', 'like', "%$search%")
+                                ->orWhere('divisions.nivel', '=', $search) 
+                                ->orWhere('contador.subdivisiones', '=', $search) 
+                                ->orWhere('divisions.embajador_nombre', 'like', "%$search%");
                         });
                         break;
                 }
