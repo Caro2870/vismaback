@@ -25,3 +25,12 @@ Route::get('/divisiones/listar-subdivisiones-por-id', [DivisionController::class
 Route::post('/divisiones/crear-division', [DivisionController::class, 'crearDivisones']);
 Route::put('/divisiones/actualizar-division-por-id', [DivisionController::class, 'actualizarDivisiones']);
 Route::delete('/divisiones/delete-division', [DivisionController::class, 'eliminarDivision']);
+
+Route::get('/test-database', function () {
+    try {
+        DB::connection()->getPdo();
+        print_r("Connected successfully to: " . DB::connection()->getDatabaseName());
+    } catch (\Exception $e) {
+        die("Could not connect to the database.  Please check your configuration. Error:" . $e );
+    }
+});
